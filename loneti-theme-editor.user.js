@@ -24,9 +24,6 @@
   if (window[GUARD_KEY]) return;
   window[GUARD_KEY] = true;
 
-  // =========================================================================
-  // 1. Настройки и пресеты (загружаются сразу на document-start)
-  // =========================================================================
   const STORAGE_KEY = 'lt_theme_editor_v1';
 
   const ANIM_PRESETS = [
@@ -150,9 +147,6 @@
 
   loadSettings();
 
-  // =========================================================================
-  // 2. Сразу применяем классы и стили темы (до отрисовки страницы, без вспышки)
-  // =========================================================================
   const STYLE_ID = 'lt-theme-editor-style';
   let capturedApp = null;
 
@@ -177,7 +171,6 @@
     const style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
-      /* Тёмная тема всего сайта через инверсию с сохранением точных цветов холста, палитры и картинок */
       html.lt-theme-dark {
         background: #f3f1ed !important;
         filter: invert(1) hue-rotate(180deg) !important;
@@ -187,7 +180,6 @@
         background-image: none !important;
       }
 
-      /* Исключения: холст, превью слоёв, колесо/градиенты/образцы цвета, картинки, видео, шапка и наши панели */
       html.lt-theme-dark img,
       html.lt-theme-dark picture,
       html.lt-theme-dark video,
@@ -207,7 +199,6 @@
         filter: invert(1) hue-rotate(180deg) !important;
       }
 
-      /* Шапка изначально тёмная: сохраняем её тёмной без двойной инверсии картинок внутри */
       html.lt-theme-dark #header {
         background-color: #16161a !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -218,7 +209,6 @@
         filter: none !important;
       }
 
-      /* Серые ники (до инверсии rgb(92,92,92) -> визуально мягкий серый #a3a3a3) */
       html.lt-theme-dark .lt-theme-nick,
       html.lt-theme-dark .one-layer__user-name,
       html.lt-theme-dark .one-user-canvas__name {
@@ -228,7 +218,6 @@
         color: rgb(56, 56, 56) !important;
       }
 
-      /* Чтобы за обёртками сайта и за рабочим холстом draw.js просвечивал анимированный фон */
       html.lt-theme-bg-active #content,
       html.lt-theme-bg-active .js--cont-draw,
       html.lt-theme-bg-active .js--main-drawing-area,
@@ -238,7 +227,6 @@
         background-color: transparent !important;
       }
 
-      /* Слой анимированного фона */
       #lt-theme-bg-canvas {
         position: fixed;
         inset: 0;
@@ -252,7 +240,6 @@
         filter: invert(1) hue-rotate(180deg) !important;
       }
 
-      /* Кнопка и панель редактора тем */
       .lt-theme-fab {
         position: fixed;
         bottom: 14px;
@@ -564,9 +551,6 @@
   applyRootClasses();
   injectThemeStyles();
 
-  // =========================================================================
-  // 3. Перехват движка холста (Z.prototype.clearCanvas) для прозрачного фона вокруг листа
-  // =========================================================================
   function getApp() {
     return capturedApp || window.__lonetiApp || null;
   }
@@ -629,9 +613,6 @@
     }
   }
 
-  // =========================================================================
-  // 4. Движок встроенных анимированных фонов (Canvas 2D)
-  // =========================================================================
   let bgCanvas = null;
   let bgCtx = null;
   let bgRaf = null;
@@ -962,9 +943,6 @@
     }
   }
 
-  // =========================================================================
-  // 5. UI редактора тем и выбора анимаций
-  // =========================================================================
   let ui = null;
 
   function initUI() {
