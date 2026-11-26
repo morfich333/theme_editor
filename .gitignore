@@ -1,0 +1,11 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies / Logs
+node_modules/
+*.log
+
+# Local extracted site assets (not part of the userscript)
+draw.js
