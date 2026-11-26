@@ -4,14 +4,25 @@ Minimalist dark theme and customizable Canvas 2D animated backgrounds for [lonet
 
 ## Install
 
-1. Install a userscript manager such as **Tampermonkey** or **Violentmonkey**.
-2. Click the direct install link below:
+1. **Install a userscript manager:**
+   - Download **Tampermonkey** from the official website: **[tampermonkey.net](https://www.tampermonkey.net/)** *(links for Chrome, Firefox, Edge, Opera, and Safari)*.
+   - **Mobile:** Firefox with Tampermonkey add-on on Android, or **Userscripts** / Tampermonkey for Safari on iOS.
+
+2. **Enable browser permissions (Chrome / Chromium browsers):**
+   - Open `chrome://extensions` *(or right-click the Tampermonkey icon -> **Manage Extension**)*.
+   - On **Chrome 138+** (or newer Chromium): switch **Allow User Scripts** to **ON** in Tampermonkey's details.
+   - On **older Chromium browsers** (without that toggle): enable **Developer mode** in the top-right corner of `chrome://extensions`.
+   - Make sure site access is enabled (e.g. **On all sites** or allowed for `loneti.ru`).
+   - *(Firefox works right after installing the add-on without extra toggles.)*
+
+3. **Install the script:**
 
    **[Install `loneti-theme-editor.user.js`](https://raw.githubusercontent.com/morfich333/theme_editor/main/loneti-theme-editor.user.js)**
 
-3. Confirm installation in your extension, then open or refresh `loneti.ru` (`F5`).
+4. Confirm installation in Tampermonkey, then open or refresh `loneti.ru` (`F5`).
 
 > Updates are picked up automatically from the `main` branch via `@updateURL` and `@downloadURL`.
+> **Script privacy & permissions:** uses `@grant none` and only runs on `https://loneti.ru/*` and `https://*.loneti.ru/*`.
 
 ## Features
 
@@ -34,7 +45,7 @@ Minimalist dark theme and customizable Canvas 2D animated backgrounds for [lonet
 | :--- | :--- |
 | [`loneti-theme-editor.user.js`](./loneti-theme-editor.user.js) | Main userscript source code |
 | [`LICENSE`](./LICENSE) | MIT License |
-| [`README.md`](./README.md) | Documentation and direct install link |
+| [`README.md`](./README.md) | Documentation, permissions guide, and direct install link |
 
 ## Controls
 
